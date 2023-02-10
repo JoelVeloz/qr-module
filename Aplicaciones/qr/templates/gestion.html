@@ -1,48 +1,304 @@
 {% extends "index.html" %} {% block body %}
+<div class="w-full flex w-full p-12 gap-12">
+  <div class="flex items-center justify-center">
+    <!-- Author: FormBold Team -->
+    <!-- Learn More: https://formbold.com -->
+    <div class="mx-auto w-full max-w-[700px] bg-white shadow-xl rounded-2xl p-4 px-8">
+      <form action="/registrar/" method="POST">
+        {% csrf_token %}
+        <p class="text-blue-500 font-semibold text-2xl py-3">Crear usuario</p>
 
-<!-- <body> -->
-  <h1>formulario</h1>
+        <div class="-mx-3 flex flex-wrap">
+          <div class="w-full px-3 sm:w-1/2">
+            <div class="mb-2">
+              <label
+                for="fName"
+                class="mb-3 block text-base font-medium text-[#07074D]"
+              >
+                Nombre
+              </label>
+              <input
+                type="text"
+                name="txtname"
+                id="txtname"
+                placeholder="nombre"
+                class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+              />
+            </div>
+          </div>
+          <div class="w-full px-3 sm:w-1/2">
+            <div class="mb-2">
+              <label
+                for="fName"
+                class="mb-3 block text-base font-medium text-[#07074D]"
+              >
+                Correo
+              </label>
+              <input
+                type="text"
+                name="txtemail"
+                id="txtemail"
+                placeholder="Correo"
+                class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+              />
+            </div>
+          </div>
+          <div class="w-full px-3 sm:w-1/2">
+            <div class="mb-2">
+              <label
+                for="fName"
+                class="mb-3 block text-base font-medium text-[#07074D]"
+              >
+                Cedula
+              </label>
+              <input
+                type="text"
+                name="txtcedula"
+                id="txtcedula"
+                placeholder="Cedula"
+                class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+              />
+            </div>
+          </div>
+          <div class="w-full px-3 sm:w-1/2">
+            <div class="mb-2">
+              <label
+                for="lName"
+                class="mb-3 block text-base font-medium text-[#07074D]"
+              >
+                Contraseña
+              </label>
+              <input
+                type="text"
+                name="txtpass"
+                id="txtpass"
+                placeholder="Contraseña"
+                class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+              />
+            </div>
+          </div>
+          <div class="w-full px-3 sm:w-1/2">
+            <div class="mb-2">
+              <label
+                for="fName"
+                class="mb-3 block text-base font-medium text-[#07074D]"
+              >
+                Rol
+              </label>
+              <input
+                type="text"
+                name="txtrole"
+                id="txtrole"
+                placeholder="Rol"
+                class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+              />
+            </div>
+          </div>
+          <div class="w-full px-3 sm:w-1/2">
+            <div class="mb-2">
+              <label
+                for="fName"
+                class="mb-3 block text-base font-medium text-[#07074D]"
+              >
+                Sexo
+              </label>
+              <select
+                name="txtsex"
+                required
+                class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+              >
+                <option value="Femenino">mujer</option>
+                <option value="Masculino">hombre</option>
+              </select>
+            </div>
+          </div>
+          <div class="w-full px-3 sm:w-1/2">
+            <div class="mb-2">
+              <label
+                for="fName"
+                class="mb-3 block text-base font-medium text-[#07074D]"
+              >
+                Edad
+              </label>
+              <input
+                type="text"
+                name="txtage"
+                id="txtage"
+                placeholder="Edad"
+                class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+              />
+            </div>
+          </div>
+          <div class="w-full px-3 sm:w-1/2">
+            <div class="mb-2">
+              <label
+                for="lName"
+                class="mb-3 block text-base font-medium text-[#07074D]"
+              >
+                Direccion
+              </label>
+              <input
+                type="text"
+                name="txtadd"
+                id="txtadd"
+                placeholder="Direccion"
+                class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+              />
+            </div>
+          </div>
+          <div class="w-full px-3 sm:w-1/2">
+            <div class="mb-2">
+              <label
+                for="fName"
+                class="mb-3 block text-base font-medium text-[#07074D]"
+              >
+                Telefono
+              </label>
+              <input
+                type="text"
+                name="txtphone"
+                id="txtphone"
+                placeholder="Telefono celular"
+                class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+              />
+            </div>
+          </div>
+        </div>
 
-  <form action="/registrar/" method="post">
-    {% csrf_token %}
-    <input type="text" name="txtcedula" placeholder="cedula" required />
-    <input type="text" name="txtname" placeholder="nombre" required />
-    <input type="text" name="txtemail" placeholder="email" required />
-    <input type="text" name="txtpass" placeholder="password" required />
-    <input type="text" name="txtrole" placeholder="role" required />
-    <select name="txtsex" required>
-      <option value="Femenino">mujer</option>
-      <option value="Masculino">hombre</option>
-    </select>
-    <input type="text" name="txtage" placeholder="edad" required />
-    <input type="text" name="txtcountry" placeholder="pais" required />
-    <input type="text" name="txtcity" placeholder="ciudad" required />
-    <input type="text" name="txtadd" placeholder="direccion" required />
-    <input type="text" name="txtphone" placeholder="telefono" required />
-    <input type="text" name="txtqr" placeholder="qr" required />
-    <button type="submit">Guardar</button>
-  </form>
-
-  <table>
-    <thead>
-      <tr>
-        <th>nombre</th>
-        <th>cedula</th>
-        <th>edad</th>
-        <th>editar borrar</th>
-      </tr>
-    </thead>
-    <tbody>
-      {% for c in usuario %}
-      <tr>
-        <td>{{c.name}}</td>
-        <td>{{c.cedula}}</td>
-        <td>{{c.age}}</td>
-        <td><a href="edicion/{{c.name}}">Editar</a></td>
-        <td><a href="eliminar/{{c.cedula}}">Eliminar</a></td>
-      </tr>
-      {% endfor %}
-    </tbody>
-  </table>
+        <div>
+          <button
+            type="submit"
+            class="hover:shadow-form rounded-md bg-[#6A64F1] py-3 px-8 text-center text-base font-semibold text-white outline-none"
+          >
+            Crear usuario
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="bg-white shadow-md rounded my-6 w-full">
+    <table class="min-w-max w-full table-auto">
+      <thead>
+        <tr class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
+          <th class="py-3 px-6 text-left">Nombre</th>
+          <th class="py-3 px-6 text-left">Correo</th>
+          <th class="py-3 px-6 text-center">Telefono</th>
+          <th class="py-3 px-6 text-center">Edad</th>
+          <th class="py-3 px-6 text-center">Acciones</th>
+        </tr>
+      </thead>
+      <tbody class="text-gray-600 text-sm font-light">
+        {% for c in usuario %}
+        <tr class="border-b border-gray-200 hover:bg-gray-100">
+          <td class="py-3 px-6 text-left whitespace-nowrap">
+            <div class="flex items-center">
+              <span class="font-medium">{{c.name}}</span>
+            </div>
+          </td>
+          <td class="py-3 px-6 text-left">
+            <div class="flex items-center">
+              <span>{{c.email}}</span>
+            </div>
+          </td>
+          <td class="py-3 px-6 text-center">
+            <div class="flex items-center">
+              <span>{{c.phone}}</span>
+            </div>
+          </td>
+          <td class="py-3 px-6 text-center">
+            <div class="flex items-center">
+              <span>{{c.age}}</span>
+            </div>
+          </td>
+          <td class="py-3 px-6 text-center">
+            <div class="flex item-center justify-center">
+              <!-- <div
+                class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                  />
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
+                  />
+                </svg>
+              </div> -->
+              <a
+                href="edicion/{{c.name}}"
+                class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"
+                  />
+                </svg>
+              </a>
+              <a
+                href="eliminar/{{c.cedula}}"
+                class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+                  />
+                </svg>
+              </a>
+            </div>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+<!-- <table>
+  <thead>
+    <tr>
+      <th>nombre</th>
+      <th>cedula</th>
+      <th>edad</th>
+      <th>editar borrar</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for c in usuario %}
+    <tr>
+      <td>{{c.name}}</td>
+      <td>{{c.cedula}}</td>
+      <td>{{c.age}}</td>
+      <td><a href="edicion/{{c.name}}">Editar</a></td>
+      <td><a href="eliminar/{{c.cedula}}">Eliminar</a></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table> -->
 <!-- </body> -->
 {% endblock %}

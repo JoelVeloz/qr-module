@@ -5,25 +5,28 @@ from .models import user
 
 
 def home(request):
+    print("index")
     usuarios = user.objects.all()
     return render(request, "gestion.html", {"usuario": usuarios})
 
 
 def registrar(request):
-    cedula = request.POST['txtcedula']
+    cedulaovariabledeloquesea = request.POST['txtcedula']
     name = request.POST['txtname']
     email = request.POST['txtemail']
 
     sex = request.POST['txtsex']
 
     age = request.POST['txtage']
-    country = request.POST['txtcountry']
-    city = request.POST['txtcity']
+    # country = request.POST['txtcountry']
+    country = "Ecuador"
+    # city = request.POST['txtcity']
+    city = "Quito"
     address = request.POST['txtadd']
     phone = request.POST['txtphone']
 
     usuario = user.objects.create(
-        cedula=cedula, name=name, email=email, sex=sex, age=age, country=country, city=city, address=address, phone=phone)
+        cedula=cedulaovariabledeloquesea, name=name, email=email, sex=sex, age=age, country=country, city=city, address=address, phone=phone)
     return redirect('/')
 
 
@@ -31,6 +34,7 @@ def edicion(request, name):
     usuario = user.objects.get(name=name)
     print(usuario)
     return render(request, "editar.html", {"usuario": usuario})
+
 
 def editar(request):
     cedula = request.POST['txtcedula']
