@@ -1,54 +1,48 @@
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>formulario</h1>
+{% extends "index.html" %} {% block body %}
 
-    <form action="/registrar/" method="post">{% csrf_token %}
-        <input type="text" name="txtcedula" placeholder="cedula" required>
-        <input type="text" name="txtname" placeholder="nombre" required>
-        <input type="text" name="txtemail" placeholder="email" required>
-        <input type="text" name="txtpass" placeholder="password" required>
-        <input type="text" name="txtrole" placeholder="role" required>
-        <select name="txtsex" required>
-            <option value="Femenino">mujer</option>
-            <option value="Masculino">hombre</option>
-        </select>
-        <input type="text" name="txtage" placeholder="edad" required>
-        <input type="text" name="txtcountry" placeholder="pais" required>
-        <input type="text" name="txtcity" placeholder="ciudad" required>
-        <input type="text" name="txtadd" placeholder="direccion" required>
-        <input type="text" name="txtphone" placeholder="telefono" required>
-        <input type="text" name="txtqr" placeholder="qr" required>
-        <button type="submit">Guardar</button>
-    </form>
+<!-- <body> -->
+  <h1>formulario</h1>
 
-    
+  <form action="/registrar/" method="post">
+    {% csrf_token %}
+    <input type="text" name="txtcedula" placeholder="cedula" required />
+    <input type="text" name="txtname" placeholder="nombre" required />
+    <input type="text" name="txtemail" placeholder="email" required />
+    <input type="text" name="txtpass" placeholder="password" required />
+    <input type="text" name="txtrole" placeholder="role" required />
+    <select name="txtsex" required>
+      <option value="Femenino">mujer</option>
+      <option value="Masculino">hombre</option>
+    </select>
+    <input type="text" name="txtage" placeholder="edad" required />
+    <input type="text" name="txtcountry" placeholder="pais" required />
+    <input type="text" name="txtcity" placeholder="ciudad" required />
+    <input type="text" name="txtadd" placeholder="direccion" required />
+    <input type="text" name="txtphone" placeholder="telefono" required />
+    <input type="text" name="txtqr" placeholder="qr" required />
+    <button type="submit">Guardar</button>
+  </form>
 
-    <table>
-        <thead>
-            <tr>
-                <th>nombre</th>
-                <th>cedula</th>
-                <th>edad</th>
-                <th>editar     borrar</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for c in usuario %}
-            <tr>
-                <td>{{c.name}}</td>
-                <td>{{c.cedula}}</td>
-                <td>{{c.age}}</td>
-                <td><a href="editar/{{c.name}}">Editar</a></td>
-                <td><a href="eliminar/{{c.cedula}}">Eliminar</a></td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-</body>
-</html>
+  <table>
+    <thead>
+      <tr>
+        <th>nombre</th>
+        <th>cedula</th>
+        <th>edad</th>
+        <th>editar borrar</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for c in usuario %}
+      <tr>
+        <td>{{c.name}}</td>
+        <td>{{c.cedula}}</td>
+        <td>{{c.age}}</td>
+        <td><a href="edicion/{{c.name}}">Editar</a></td>
+        <td><a href="eliminar/{{c.cedula}}">Eliminar</a></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+<!-- </body> -->
+{% endblock %}

@@ -1,26 +1,71 @@
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+{% extends "index.html" %} {% block body %}
 <body>
-    <h1>Editar formulario</h1>
+  <h1>Editar formulario</h1>
 
-    <form action="/editar/" method="post">{% csrf_token %}
-        <input type="text" name="txtcedula" value="{{usuario.cedula}}" placeholder="cedula" required>
-        <input type="text" name="txtname" value="{{usuario.name}}" placeholder="nombre" required>
-        <input type="text" name="txtemail" value="{{usuario.email}}" placeholder="email" required>
-        <select name="txtsex"  value="{{usuario.sex}}" required>
-            <option value="Femenino">mujer</option>
-            <option value="Masculino">hombre</option>
-        </select>
-        <input type="text" name="txtage"  value="{{usuario.age}}" placeholder="edad" required>
-        <input type="text" name="txtcountry"  value="{{usuario.country}}" placeholder="pais" required>
-        <input type="text" name="txtcity"  value="{{usuario.city}}" placeholder="ciudad" required>
-        <input type="text" name="txtadd" value="{{usuario.address}}" placeholder="direccion" required>
-        <input type="text" name="txtphone" value="{{usuario.phone}}" placeholder="telefono" required>
-        <button type="submit">Guardar</button>
-    </form>
+  <form action="/editar/" method="POST">
+    {% csrf_token %}
+    <input
+      type="text"
+      name="txtcedula"
+      value="{{usuario.cedula}}"
+      placeholder="cedula"
+      required
+    />
+    <input
+      type="text"
+      name="txtname"
+      value="{{usuario.name}}"
+      placeholder="nombre"
+      required
+    />
+    <input
+      type="text"
+      name="txtemail"
+      value="{{usuario.email}}"
+      placeholder="email"
+      required
+    />
+    <select name="txtsex" value="{{usuario.sex}}" required>
+      <option value="Femenino">mujer</option>
+      <option value="Masculino">hombre</option>
+    </select>
+    <input
+      type="text"
+      name="txtage"
+      value="{{usuario.age}}"
+      placeholder="edad"
+      required
+    />
+    <input
+      type="text"
+      name="txtcountry"
+      value="{{usuario.country}}"
+      placeholder="pais"
+      required
+    />
+    <input
+      type="text"
+      name="txtcity"
+      value="{{usuario.city}}"
+      placeholder="ciudad"
+      required
+    />
+    <input
+      type="text"
+      name="txtadd"
+      value="{{usuario.address}}"
+      placeholder="direccion"
+      required
+    />
+    <input
+      type="text"
+      name="txtphone"
+      value="{{usuario.phone}}"
+      placeholder="telefono"
+      required
+    />
+    <button type="submit">Guardar</button>
+  </form>
 </body>
+
+{% endblock %}
