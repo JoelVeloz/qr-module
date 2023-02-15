@@ -4,7 +4,7 @@
     <!-- Author: FormBold Team -->
     <!-- Learn More: https://formbold.com -->
     <div class="mx-auto w-full max-w-[700px] bg-white shadow-xl rounded-2xl p-4 px-8">
-      <form action="/registrar/" method="POST">
+      <form action="registrar/" method="POST">
         {% csrf_token %}
         <p class="text-blue-500 font-semibold text-2xl py-3">Crear usuario</p>
 
@@ -236,7 +236,7 @@
                 </svg>
               </div> -->
               <a
-                href="edicion/{{c.name}}"
+                href="edicion/{{c.cedula}}"
                 class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110"
               >
                 <svg

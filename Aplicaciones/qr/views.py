@@ -27,11 +27,11 @@ def registrar(request):
 
     usuario = user.objects.create(
         cedula=cedulaovariabledeloquesea, name=name, email=email, sex=sex, age=age, country=country, city=city, address=address, phone=phone)
-    return redirect('/')
+    return redirect('')
 
 
-def edicion(request, name):
-    usuario = user.objects.get(name=name)
+def edicion(request, cedula):
+    usuario = user.objects.get(cedula=cedula)
     print(usuario)
     return render(request, "editar.html", {"usuario": usuario})
 
