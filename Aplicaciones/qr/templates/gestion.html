@@ -4,7 +4,7 @@
     <!-- Author: FormBold Team -->
     <!-- Learn More: https://formbold.com -->
     <div class="mx-auto w-full max-w-[700px] bg-white shadow-xl rounded-2xl p-4 px-8">
-      <form action="registrar/" method="POST">
+      <form action="administrador/registrar/" method="POST">
         {% csrf_token %}
         <p class="text-blue-500 font-semibold text-2xl py-3">Crear usuario</p>
 
@@ -23,6 +23,7 @@
                 id="txtname"
                 placeholder="nombre"
                 class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+                required
               />
             </div>
           </div>
@@ -40,6 +41,7 @@
                 id="txtemail"
                 placeholder="Correo"
                 class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+                required
               />
             </div>
           </div>
@@ -52,11 +54,13 @@
                 Cedula
               </label>
               <input
-                type="text"
+                type="tel"
                 name="txtcedula"
+                pattern="[0-9]{10}"
                 id="txtcedula"
                 placeholder="Cedula"
                 class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+                required
               />
             </div>
           </div>
@@ -74,6 +78,7 @@
                 id="txtpass"
                 placeholder="Contraseña"
                 class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+                required
               />
             </div>
           </div>
@@ -91,6 +96,7 @@
                 id="txtrole"
                 placeholder="Rol"
                 class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+                required
               />
             </div>
           </div>
@@ -121,11 +127,13 @@
                 Edad
               </label>
               <input
-                type="text"
+                type="number"
                 name="txtage"
                 id="txtage"
+                min="18" step="1"
                 placeholder="Edad"
                 class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+                required
               />
             </div>
           </div>
@@ -143,6 +151,7 @@
                 id="txtadd"
                 placeholder="Direccion"
                 class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+                required
               />
             </div>
           </div>
@@ -155,11 +164,13 @@
                 Telefono
               </label>
               <input
-                type="text"
+                type="tel"
                 name="txtphone"
+                pattern="[0-9]{10}"
                 id="txtphone"
                 placeholder="Telefono celular"
                 class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+                required
               />
             </div>
           </div>
@@ -189,6 +200,7 @@
       </thead>
       <tbody class="text-gray-600 text-sm font-light">
         {% for c in usuario %}
+        
         <tr class="border-b border-gray-200 hover:bg-gray-100">
           <td class="py-3 px-6 text-left whitespace-nowrap">
             <div class="flex items-center">
@@ -236,7 +248,7 @@
                 </svg>
               </div> -->
               <a
-                href="administrador/edicion/{{c.cedula}}"
+                href="administrador/edicion/{{c.custom_id}}"
                 class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110"
               >
                 <svg
@@ -254,7 +266,7 @@
                 </svg>
               </a>
               <a
-                href="administrador/eliminar/{{c.cedula}}"
+                href="administrador/eliminar/{{c.custom_id}}"
                 class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110"
               >
                 <svg
