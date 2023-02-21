@@ -36,6 +36,11 @@ def home(request):
     return render(request, "gestion.html", {"usuario": usuarios})
 
 # @login_required
+# def home(request):
+#     print("index")
+#     return render(request, "home.html")
+
+# @login_required
 
 
 def registrar(request):
@@ -56,12 +61,9 @@ def registrar(request):
     # )
     usuario = User.objects.create_user(
         username=email, password=password)
+
+    usuario.profile.bio = cedulaovariabledeloquesea
     usuario.save()
-    perfil = Profile.objects.create(
-        user=usuario,
-        bio=cedulaovariabledeloquesea
-    )
-    perfil.save()
     return redirect('/')
 
 
@@ -119,27 +121,19 @@ def signup(request):
         return render(request, 'signup.html', {'form': UserCreationForm})
     else:
         if request.POST['password1'] == request.POST['password2']:
-            # try:
-            # usuario = Profile.objects.create_user_profile(
-            #     bio="request.POST['bio']",
-            #     username=request.POST['username'], password=request.POST['password1'])
+            try:
+                usuario = User.objects.create_user(
+                    username=request.POST['username'], password=request.POST['password1'])
 
-            usuario = User.objects.create_user(
-                # bio= "hola",
-                username=request.POST['username'], password=request.POST['password1'])
-            usuario.profile.bio = "hola"
-            # perfil = Profile.objects.create(
-            #     user=usuario,
-            #     bio='Aquí la biografía del usuario'
-            # )
-            # usuario.profile = perfil
-            usuario.save()
-            login(request, usuario)
-            return redirect('/')
-            # except IntegrityError:
-            #     return render(request, 'signup.html', {
-            #         'form': UserCreationForm,
-            #         'error': 'usuario ya existe'})
+                usuario.profile.bio = "hola"
+
+                usuario.save()
+                login(request, usuario)
+                return redirect('/')
+            except IntegrityError:
+                return render(request, 'signup.html', {
+                    'form': UserCreationForm,
+                    'error': 'usuario ya existe'})
 
         return render(request, 'signup.html', {
             'form': UserCreationForm,
@@ -163,6 +157,10 @@ def signin(request):
                 'error': 'Usuario o contraseña incorrecta'})
         else:
             login(request, usuario)
+            # usuario.profile.role = "admin"
+            # if(usuario.profile.role == "admin"):
+            #     return redirect('gestion:dashboard')
+            # else:
             return redirect("/")
 
 
