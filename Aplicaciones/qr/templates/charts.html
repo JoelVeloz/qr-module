@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load static %}
+
+
+{% block content %}
+
+<div class="page-breadcrumb">
+    <div class="row">
+        <div class="col-12 d-flex no-block align-items-center">
+            <h4 class="page-title" style="margin: 0 auto; float: none; width: 41%;">Dashboard Estadistico</h4>
+            <div class="ml-auto text-right">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="{% url 'gestion:dashboard' %}">Inicio</a></li>
+
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

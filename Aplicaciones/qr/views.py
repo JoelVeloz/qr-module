@@ -7,12 +7,30 @@ from django.db import IntegrityError
 from django.contrib.auth.decorators import login_required
 
 # Create your views here.
-
 @login_required
 def home(request):
-    print("index")
-    usuarios = user.objects.all()
-    return render(request, "gestion.html", {"usuario": usuarios})
+    #usuarios = user.objects.all() , {"usuario": usuarios}
+    return render(request, "index.html")
+    
+@login_required
+def Inscripciones(request):
+    return render(request, 'form_basic.html')
+
+@login_required
+def crear_evento(request):
+    return render(request, "crear-event.html")
+
+@login_required
+def autent_qr(request):
+    return render(request, "autent_qr.html")
+
+@login_required
+def event_creado(request):
+    return render(request, "event_creado.html")
+
+@login_required
+def charts(request):
+    return render(request, "charts.html")
 
 @login_required
 def registrar(request):
@@ -64,11 +82,13 @@ def editar(request):
     nuevo.save()
     return redirect('/')
 
+
 @login_required
 def eliminar(request, custom_id):
     usuario = user.objects.get(custom_id=custom_id)
     usuario.delete()
     return redirect('/')
+
 
 @login_required
 def datos(request, custom_id):
@@ -78,42 +98,42 @@ def datos(request, custom_id):
 
 def signup(request):
     if request.method == 'GET':
-        return render(request, 'signup.html', {'form': UserCreationForm})
+        return render(request, 'register.html', {'form': UserCreationForm})
     else:
         if request.POST['password1'] == request.POST['password2']:
             try:
                 usuario = User.objects.create_user(username = request.POST['username'],password=request.POST['password1'])
                 usuario.save()
                 login(request, usuario)
-                return redirect('/')
+                return redirect('gestion:dashboard')
             except IntegrityError:
-                return render(request, 'signup.html', {
+                return render(request, 'register.html', {
                     'form': UserCreationForm,
                     'error': 'usuario ya existe'})
 
             
-        return render(request, 'signup.html', {
+        return render(request, 'register.html', {
             'form': UserCreationForm,
             'error': 'contraseñas no coinciden'})
 
 def signout(request):
     logout(request)
-    return redirect('gestion:signup')
+    return redirect('gestion:signin')
 
 
 
 def signin(request):
     if request.method == 'GET':
-        return render(request, 'signin.html', {"form": AuthenticationForm })
+        return render(request, 'login.html', {"form": AuthenticationForm })
     else: 
         usuario = authenticate(request, username=request.POST['username'], password=request.POST['password'])
         if usuario is None:
-            return render(request, 'signin.html', {
+            return render(request, 'login.html', {
                 'form': AuthenticationForm,
                 'error': 'Usuario o contraseña incorrecta'})
         else:
             login(request, usuario)
-            return redirect("/")
+            return redirect("gestion:dashboard")
 
         
 def error_404_view(request, exception):

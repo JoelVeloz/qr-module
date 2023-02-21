@@ -1,0 +1,195 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load static %}
+
+{% block page_title %}
+Form
+{% endblock %}
+{% block content %}
+<div class="page-breadcrumb">
+    <div class="row">
+        <div class="col-12 d-flex no-block align-items-center">
+            <h4 class="page-title" style="margin: 0 auto; float: none; width: 41%;">Incripciones</h4>
+            <div class="ml-auto text-right">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="{% url 'gestion:dashboard' %}">Inicio</a></li>
+
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid">
+    <!-- ============================================================== -->
+    <!-- Start Page Content -->
+    <!-- ============================================================== -->
+    <div class="row">
+        <div class="col-md-8" style="margin: 0 auto; float: none;">
+            <div class="card">
+                <form class="form-horizontal">
+                    <div class="card-body">
+                        <h4 class="card-title">Formulario de inscripcion</h4>
+                        <div class="form-group row">
+                            <label for="fname" class="col-sm-3 text-right control-label col-form-label">Nombres</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="fname" placeholder="Ingrese sus Nombres">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="fname"
+                                class="col-sm-3 text-right control-label col-form-label">Apellidos</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="fname" placeholder="Ingrese sus Apellidos">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="lname" class="col-sm-3 text-right control-label col-form-label">E-mail
+                            </label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="lname"
+                                    placeholder="Ingrese su correo Electronico">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="email1" class="col-sm-3 text-right control-label col-form-label">Ciudad
+                            </label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="email1" placeholder="Ingrese su Ciudad">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="lname" class="col-sm-3 text-right control-label col-form-label">Direccion
+                            </label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="lname" placeholder="Direccion Domiciliaria">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="lname" class="col-sm-3 text-right control-label col-form-label">Ocupacion
+                            </label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="lname" placeholder="Ingrese su Ocupacion">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="cono1" class="col-sm-3 text-right control-label col-form-label">Contacto
+                            </label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control phone-inputmask" id="phone-mask"
+                                    placeholder="Ingrese su numero Telefonico">
+                            </div>
+
+
+                        </div>
+                        <div class="form-group row">
+                            <label for="cono1" class="col-sm-3 text-right control-label col-form-label">Edad
+                            </label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" pattern="[0-9]{1,3}" maxlength="3" required
+                                    placeholder="Ingrese su Edad">
+                            </div>
+
+                        </div>
+                        <div class="form-group row">
+                            <label for="cono1" class="col-sm-3 text-right control-label col-form-label">Genero</label>
+                            <div class="col-md-9">
+                                <div class="custom-control custom-radio">
+                                    <input type="radio" class="custom-control-input" id="customControlValidation1"
+                                        name="radio-stacked" required="">
+                                    <label class="custom-control-label" for="customControlValidation1">Masculino
+                                    </label>
+                                </div>
+                                <div class="custom-control custom-radio">
+                                    <input type="radio" class="custom-control-input" id="customControlValidation2"
+                                        name="radio-stacked" required="">
+                                    <label class="custom-control-label" for="customControlValidation2">Femenino
+                                    </label>
+                                </div>
+                                <div class="custom-control custom-radio">
+                                    <input type="radio" class="custom-control-input" id="customControlValidation3"
+                                        name="radio-stacked" required="">
+                                    <label class="custom-control-label" for="customControlValidation3">Otros
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="cono1" class="col-sm-3 text-right control-label col-form-label">Discapacidad?
+                            </label>
+                            <div class="col-sm-9">
+                                <div class="custom-control custom-radio">
+                                    <select name="selectOption" id="selectOption" class="form-control">
+                                        <option value="r">Si</option>
+                                        <option value="a">No</option>
+                                    </select>
+
+
+                                </div>
+
+
+                            </div>
+
+                        </div>
+                        <div class="form-group row">
+                            <label for="cono1" class="col-sm-3 text-right control-label col-form-label">Asistira con
+                                acompañante
+                            </label>
+                            <div class="col-sm-9">
+                                <div class="custom-control custom-radio">
+                                    <select name="selectOption" id="selectOption" class="form-control">
+                                        <option value="r">Si</option>
+                                        <option value="a">No</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="cono1" class="col-sm-3 text-right control-label col-form-label">Nivel Educativo
+                            </label>
+                            <div class="col-sm-9">
+                                <div class="custom-control custom-radio">
+                                    <select name="selectOption" id="selectOption" class="form-control">
+                                        <option value="r">Primaria</option>
+                                        <option value="a">Secundaria</option>
+                                        <option value="a">Tercer Nivel</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="cono1" class="col-sm-3 text-right control-label col-form-label">¿Como se enteró
+                                del evento?
+                            </label>
+                            <div class="col-sm-9">
+                                <div class="custom-control custom-radio">
+                                    <select name="selectOption" id="selectOption" class="form-control">
+                                        <option value="r">Redes Sociales</option>
+                                        <option value="a">Medios Impresos</option>
+                                        <option value="a">Amigo</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="border-top" style="margin: 0 auto; float: none;"">
+                        <div class=" card-body" style="margin: 0 auto; float: none; width: 50%;">
+                        <button type="button" class="btn btn-primary">Crear</button>
+                    </div>
+            </div>
+            </form>
+
+
+        </div>
+
+    </div>
+</div>
+
+
+
+
+{% endblock %}

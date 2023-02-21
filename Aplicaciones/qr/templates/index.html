@@ -1,90 +1,91 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>INDEX</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-  </head>
-  <body>
-    <!-- component -->
+{% extends 'base.html' %}
+{% load static %}
 
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css"
-    />
+{% block content %}
 
-    <!-- page -->
-    <main class="min-h-screen w-full bg-gray-100 text-gray-700" x-data="layout">
-      <!-- header page -->
-      <header
-        class="flex w-full items-center justify-between border-b-2 border-gray-200 bg-white p-2"
-      >
-        <!-- logo -->
-        <div class="flex items-center space-x-2">
-          <button
-            type="button"
-            class="text-3xl"
-            @click="asideOpen = !asideOpen"
-          >
-            <i class="bx bx-menu"></i>
-          </button>
-          <div>MODULO DE QR</div>
+<!-- ============================================================== -->
+<!-- Bread crumb and right sidebar toggle -->
+<!-- ============================================================== -->
+<div class="page-breadcrumb">
+    <div class="row">
+        <div class="col-12 d-flex no-block align-items-center">
+            <h4 class="page-title">Dashboard</h4>
+
         </div>
-      </header>
+    </div>
+</div>
 
-      <div class="flex">
-        <!-- aside -->
-        <aside
-          class="flex w-72 flex-col space-y-2 border-r-2 border-gray-200 bg-white p-2"
-          style="height: 90.5vh"
-          x-show="asideOpen"
-        >
-          <a
-            href="#"
-            class="flex items-center space-x-1 rounded-md px-2 py-3 hover:bg-gray-100 hover:text-blue-600"
-          >
-            <span class="text-2xl"><i class="bx bx-home"></i></span>
-            <span>Dashboard</span>
-          </a>
+<!-- Container fluid  -->
+<!-- ============================================================== -->
+<div class="container-fluid">
+    <div class="row">
+        <!-- Column -->
+        <div class="col-md-6 col-lg-4 col-xlg-3">
+            <div class="card card-hover">
+                <div class="box bg-cyan text-center">
+                    <h1 class="font-light text-white"><i class="mdi mdi-view-dashboard"></i></h1>
+                    <h6 class="text-white">Dashboard</h6>
+                </div>
+            </div>
+        </div>
+        <!-- Column  -->
+        <div class="col-md-6 col-lg-4 col-xlg-3">
+            <div class="card card-hover">
+                <div class="box bg-success text-center">
+                    <a href="{% url 'gestion:charts' %}">
+                        <h1 class="font-light text-white"><i class="mdi mdi-chart-areaspline"></i></h1>
+                        <h6 class="text-white">Dashboard Estadistico</h6>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- Column  -->
+        <div class="col-md-6 col-lg-4 col-xlg-3">
+            <div class="card card-hover">
+                <div class="box bg-danger text-center">
+                    <a href="{% url 'gestion:autent_qr' %}">
+                        <h1 class="font-light text-white"><i class="mdi mdi-border-outside"></i></h1>
+                        <h6 class="text-white">Autentificacion QR</h6>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- Column  -->
+        <div class="col-md-6 col-lg-4 col-xlg-3">
+            <div class="card card-hover">
+                <div class="box bg-info text-center">
+                    <a href="{% url 'gestion:Inscripciones' %}">
+                        <h1 class="font-light text-white"><i class="mdi mdi-arrow-all"></i></h1>
+                        <h6 class="text-white">Inscripciones</h6>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- Column  -->
+        <div class="col-md-6 col-lg-4 col-xlg-3">
+            <div class="card card-hover">
+                <div class="box bg-danger text-center">
+                    <a href="{% url 'gestion:event_creado' %}">
+                        <h1 class="font-light text-white"><i class="mdi mdi-receipt"></i></h1>
+                        <h6 class="text-white">Eventos Creados</h6>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- Column  -->
+        <div class="col-md-6 col-lg-4 col-xlg-3">
+            <div class="card card-hover">
+                <div class="box bg-cyan text-center">
+                    <a href="{% url 'gestion:crear_evento' %}">
+                        <h1 class="font-light text-white"><i class="mdi mdi-pencil"></i></h1>
+                        <h6 class="text-white">Creacion de Eventos</h6>
+                    </a>
+                </div>
+            </div>
+        </div>
 
-          <a
-            href="administrador/logout/"
-            class="flex items-center space-x-1 rounded-md px-2 py-3 hover:bg-gray-100 hover:text-blue-600"
-          >
-            <span class="text-2xl"><i class="bx bx-cart"></i></span>
-            <span>logout</span>
-          </a>
+    </div>
 
-          <a
-            href="#"
-            class="flex items-center space-x-1 rounded-md px-2 py-3 hover:bg-gray-100 hover:text-blue-600"
-          >
-            <span class="text-2xl"><i class="bx bx-shopping-bag"></i></span>
-            <span>Shopping</span>
-          </a>
+</div>
 
-          <a
-            href="#"
-            class="flex items-center space-x-1 rounded-md px-2 py-3 hover:bg-gray-100 hover:text-blue-600"
-          >
-            <span class="text-2xl"><i class="bx bx-heart"></i></span>
-            <span>My Favourite</span>
-          </a>
-
-          <a
-            href="#"
-            class="flex items-center space-x-1 rounded-md px-2 py-3 hover:bg-gray-100 hover:text-blue-600"
-          >
-            <span class="text-2xl"><i class="bx bx-user"></i></span>
-            <span>Profile</span>
-          </a>
-        </aside>
-
-        <!-- main content page -->
-        <div class="w-full p-4">{% block body %} {% endblock %}</div>
-      </div>
-    </main>
-  </body>
-</html>
+{% endblock content %}

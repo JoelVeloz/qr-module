@@ -1,0 +1,129 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load static %}
+
+{% block page_title %}
+Form
+{% endblock %}
+{% block content %}
+<div class="page-breadcrumb">
+    <div class="row">
+        <div class="col-12 d-flex no-block align-items-center">
+            <h4 class="page-title" style="margin: 0 auto; float: none; width: 41%;">Creacion de Eventos</h4>
+            <div class="ml-auto text-right">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="{% url 'gestion:dashboard' %}">Inicio</a></li>
+
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid">
+    <!-- ============================================================== -->
+    <!-- Start Page Content -->
+    <!-- ============================================================== -->
+    <div class="row">
+        <div class="col-md-8" style="margin: 0 auto; float: none;">
+            <div class="card">
+                <form class="form-horizontal">
+                    <div class="card-body">
+                        <h4 class="card-title">Detalles del Evento</h4>
+                        <div class="form-group row">
+                            <label for="fname" class="col-sm-3 text-right control-label col-form-label">Nombre</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="fname" placeholder="Nombre del Evento">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="lname" class="col-sm-3 text-right control-label col-form-label">Ubicacion
+                            </label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="lname" placeholder="Ubicacion del Evento">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="email1" class="col-sm-3 text-right control-label col-form-label">Tipo de
+                                Evento</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="email1" placeholder="Tipo de Evento">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="lname" class="col-sm-3 text-right control-label col-form-label">Responsable
+                            </label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="lname"
+                                    placeholder="Nombre del Responsable del Evento">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="lname" class="col-sm-3 text-right control-label col-form-label">Requisitos
+                            </label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="lname"
+                                    placeholder="Requisitos para Ingresar al Evento">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="cono1" class="col-sm-3 text-right control-label col-form-label">Contacto
+                                Inf</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control phone-inputmask" id="phone-mask"
+                                    placeholder="Numero de Contacto">
+                            </div>
+
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="cono1" class="col-sm-3 text-right control-label col-form-label">Fecha
+                            </label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control date-inputmask" id="date-mask"
+                                    placeholder="Fecha del Evento">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="cono1" class="col-sm-3 text-right control-label col-form-label">Hora
+                            </label>
+                            <div class="col-sm-9">
+                                <input type="time" class="form-control date-inputmask" id="time"
+                                    placeholder="Hora del Evento">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="cono1" class="col-sm-3 text-right control-label col-form-label">Cupos
+                            </label>
+                            <div class="col-sm-9">
+                                <input type="Number" class="form-control" id="inputNumber" pattern="\d{1,3}"
+                                    maxlength="3">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="cono1"
+                                class="col-sm-3 text-right control-label col-form-label">Descripcion</label>
+                            <div class="col-sm-9">
+                                <textarea class="form-control"></textarea>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="border-top" style="margin: 0 auto; float: none;"">
+                        <div class=" card-body" style="margin: 0 auto; float: none; width: 50%;">
+                        <button type="button" class="btn btn-primary">Crear</button>
+                    </div>
+            </div>
+            </form>
+
+
+        </div>
+
+    </div>
+</div>
+
+
+{% endblock %}

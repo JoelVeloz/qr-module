@@ -15,10 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from Aplicaciones.qr import views
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('Aplicaciones.qr.urls'))
+    path('', include('Aplicaciones.qr.url')),
+    path('administrador/signup/', views.signup, name='signup'),
+    path('administrador/signin/', views.signin, name='signin'),
 ]
 
 handler404 = 'Aplicaciones.qr.views.error_404_view'
