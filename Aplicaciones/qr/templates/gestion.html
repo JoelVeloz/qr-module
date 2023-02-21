@@ -45,7 +45,7 @@
               />
             </div>
           </div>
-          <div class="w-full px-3 sm:w-1/2">
+           <div class="w-full px-3 sm:w-1/2">
             <div class="mb-2">
               <label
                 for="fName"
@@ -82,7 +82,7 @@
               />
             </div>
           </div>
-          <div class="w-full px-3 sm:w-1/2">
+         <!-- <div class="w-full px-3 sm:w-1/2">
             <div class="mb-2">
               <label
                 for="fName"
@@ -173,7 +173,7 @@
                 required
               />
             </div>
-          </div>
+          </div> -->
         </div>
 
         <div>
@@ -193,8 +193,7 @@
         <tr class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
           <th class="py-3 px-6 text-left">Nombre</th>
           <th class="py-3 px-6 text-left">Correo</th>
-          <th class="py-3 px-6 text-center">Telefono</th>
-          <th class="py-3 px-6 text-center">Edad</th>
+          <th class="py-3 px-6 text-center">Cedula</th>
           <th class="py-3 px-6 text-center">Acciones</th>
         </tr>
       </thead>
@@ -204,24 +203,20 @@
         <tr class="border-b border-gray-200 hover:bg-gray-100">
           <td class="py-3 px-6 text-left whitespace-nowrap">
             <div class="flex items-center">
-              <span class="font-medium">{{c.name}}</span>
+              <span class="font-medium">{{c.username}}</span>
             </div>
           </td>
           <td class="py-3 px-6 text-left">
             <div class="flex items-center">
-              <span>{{c.email}}</span>
+              <span>{{c.username}}</span>
             </div>
           </td>
           <td class="py-3 px-6 text-center">
             <div class="flex items-center">
-              <span>{{c.phone}}</span>
+              <span>{{c.profile.bio}}</span>
             </div>
           </td>
-          <td class="py-3 px-6 text-center">
-            <div class="flex items-center">
-              <span>{{c.age}}</span>
-            </div>
-          </td>
+      
           <td class="py-3 px-6 text-center">
             <div class="flex item-center justify-center">
               <!-- <div
@@ -248,7 +243,7 @@
                 </svg>
               </div> -->
               <a
-                href="administrador/edicion/{{c.custom_id}}"
+                href="administrador/edicion/{{c.id}}"
                 class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110"
               >
                 <svg
@@ -266,7 +261,7 @@
                 </svg>
               </a>
               <a
-                href="administrador/eliminar/{{c.custom_id}}"
+                href="administrador/eliminar/{{c.id}}"
                 class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110"
               >
                 <svg
